@@ -1,0 +1,13 @@
+/* CSS Stylesheet 
+*/
+html, body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #f5999e;
+  
+}
+
+input {
+    text-align: center;
+    color: #517fa4;
+}
