@@ -6,7 +6,8 @@ create table clients
     clientPW varchar(64),
     activeSession varchar(128),
     firstLogin datetime,
-    lastLogin datetime
+    lastLogin datetime,
+    clientRating INT(11) 
     
   );
   
@@ -19,6 +20,5 @@ create table clients
     partyLocation varchar(32),
     partyTime dateTime,
     partyComments varchar(32)
-    
   
   );
