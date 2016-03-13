@@ -18,10 +18,22 @@ switch($request)
 		$response = "Login Failed:".$response['message']."<p>";
 	}
 	break;
-    case "signup":
+    case "register":
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$login = new clientDB("connect.ini");
+	$register = new clientDB("connect.ini");
+	$register->addNewClient($username, $password);
+	$response = $register->validateClient($username,$password);
+	if ($response['success']===true)
+	{
+		$response = "Register Successful!<p>";
+	}
+	else
+	{
+		$response = "Register Failed:".$response['message']."<p>";
+	}
+	
+	break;
 	
 	
 }
