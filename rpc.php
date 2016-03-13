@@ -34,8 +34,19 @@ switch($request)
 	}
 	
 	break;
-	
+    case "Post Party":
+	$username = $_POST["username"];
+	$partyName= $_POST["partyName"];
+	$partyLocation = $_POST["partyLocation"];
+	$partyTime = $_POST["partyTime"];
+	$response = "Post Party Success!". $partyName. " " .$username. " ". $partyLocation. " ". $partyTime. "<p>";
+	break;
 	
 }
 echo $response;
 ?>
+
+
+
+
+
