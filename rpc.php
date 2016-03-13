@@ -18,6 +18,12 @@ switch($request)
 		$response = "Login Failed:".$response['message']."<p>";
 	}
 	break;
+    case "signup":
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$login = new clientDB("connect.ini");
+	
+	
 }
 echo $response;
 ?>
