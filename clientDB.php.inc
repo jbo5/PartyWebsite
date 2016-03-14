@@ -1,5 +1,6 @@
 <?php
 require_once("error.php.inc");
+
 class clientDB
 {
     private $db;

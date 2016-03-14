@@ -1,6 +1,7 @@
 <?php
-require_once("partyPost.php.inc");
+
 require_once("clientDB.php.inc");
+require_once("partyPost.php.inc");
 
 $request = $_POST['request'];
 $response = "FUCK<p>";
@@ -42,12 +43,14 @@ switch($request)
 	$partyName= $_POST["partyName"];
 	$partyLocation = $_POST["partyLocation"];
 	$partyTime = $_POST["partyTime"];
+	$comment = $_POST["comment"];
 	$login = new clientDB("connect.ini");
 	$response = $login->validateClient($username,$password);
 	if ($response['success']===true)
 	{
 		$response = "Login Successful!<p>";
 		$post = new postParty("connect.ini");
+		$response = $post->addNewParty($username, $partyName, $partyLocation, $partyTime, $comment);
 	}
 	else
 	{
