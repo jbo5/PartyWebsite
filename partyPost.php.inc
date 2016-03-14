@@ -1,6 +1,6 @@
 <?php
-require_once("error.php.inc");
-require_once("clientDB.php.inc");
+//require_once("error.php.inc");
+
 class partyPost 
 {
   
@@ -28,6 +28,7 @@ class partyPost
     {
 	$this->db->close();
     }
+
     public function getPartyID($partyName)
     {
 	$query = "select partyId from parties where partyName = '$partyName';";

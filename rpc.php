@@ -49,8 +49,8 @@ switch($request)
 	if ($response['success']===true)
 	{
 		$response = "Login Successful!<p>";
-		$post = new postParty("connect.ini");
-		$response = $post->addNewParty($username, $partyName, $partyLocation, $partyTime, $comment);
+		//$post = new postParty("connect.ini");
+		//$response = $post->addNewParty($username, $partyName, $partyLocation, $partyTime, $comment);
 	}
 	else
 	{
