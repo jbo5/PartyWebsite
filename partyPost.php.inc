@@ -4,8 +4,7 @@
 class partyPost 
 {
   
-    private $db;
-    private $salt;	
+    private $db;	
     private $logger;
     public function __construct($iniFile)
     {
@@ -16,7 +15,6 @@ class partyPost
 		$ini['loginDB']["user"],
 		$ini['loginDB']["password"],
 		$ini['loginDB']["db"]);
-	$this->salt = $ini['loginDB']['salt'];
 	if ($this->db->connect_errno > 0 )
 	{
 		$this->logger->log(__FILE__.__LINE__."failed to connect to database re: ".$this->db->connect_error);
@@ -59,20 +57,20 @@ class partyPost
       $clientName =$this->db->real_escape_string($clientName);
       $partyName = $this->db->real_escape_string($partyName);
       $partyLocation = $this->db->real_escape_string($partyLocation);
-      $partyTime = date("Y-m-d h:i:s", $partyTime);
+      //2016-12-20 08:00
+      $partyTime = date("Y-m-d H:i:s", $partyTime);
       $comment = $this->db->real_escape_string($comment);
       $addQuery = "insert into parties (clientName, partyName, partyLocation, partyTime, partyComments) 
-			values ('$clientName','$partyName', '$partyLocation', '$partyTime', '$comments');";
+			values ('$clientName','$partyName', '$partyLocation', '$partyTime', '$comment');";
       $results = $this->db->query($addQuery);
       if(!$results)
       {
 	$this->logger->log("error: ".$this->db->error);
       }
-      return array("succcess"=>true);
+      return array("success"=>true);
       
 	
     }
-
 
 
 
