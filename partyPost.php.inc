@@ -58,7 +58,7 @@ class partyPost
       $partyName = $this->db->real_escape_string($partyName);
       $partyLocation = $this->db->real_escape_string($partyLocation);
       //2016-12-20 08:00
-      $partyTime = date("Y-m-d H:i:s", $partyTime);
+      //$partyTime = date("Y-m-d H:i:s", $partyTime);
       $comment = $this->db->real_escape_string($comment);
       $addQuery = "insert into parties (clientName, partyName, partyLocation, partyTime, partyComments) 
 			values ('$clientName','$partyName', '$partyLocation', '$partyTime', '$comment');";

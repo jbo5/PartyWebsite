@@ -22,3 +22,4 @@ create table clients
     partyComments varchar(32)
   
   );
+  
