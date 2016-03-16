@@ -44,6 +44,12 @@ switch($request)
 	$password = $_POST["password"];
 	$partyName= $_POST["partyName"];
 	$partyLocation = $_POST["partyLocation"];
+	
+	$address = $_POST["address"];
+	$city = $_POST["city"];
+	$state = $_POST['state'];
+	$zip = $_POST['zip'];
+	
 	$partyTime = $_POST["partyTime"];
 	$comment = $_POST["comment"];
 	
