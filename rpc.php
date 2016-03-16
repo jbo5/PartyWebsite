@@ -47,8 +47,12 @@ switch($request)
 	
 	$address = $_POST["address"];
 	$city = $_POST["city"];
-	$state = $_POST['state'];
-	$zip = $_POST['zip'];
+	$state = $_POST["state"];
+	$zip = $_POST["zip"];
+	echo $address;
+	echo $city;
+	echo $zip;
+	echo $state;
 	
 	$partyTime = $_POST["partyTime"];
 	$comment = $_POST["comment"];

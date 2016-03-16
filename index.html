@@ -28,7 +28,7 @@
       <p>Party Name: <input type="text" name = "partyName"/></p>
       <p>Party Location: <input type="text" name="partyLocation"/></p>
       
-    <form action= "rpc.php" method="post"  id="postparty">
+    
       <p class ="required">* Required</p>
       <div class="fieldSet">
 	  <fieldset>
@@ -37,7 +37,7 @@
 	      <p><label class="field" for="city"><span>*</span>City:</label><input type="text" name="city" class="textbox-300"/></p>
 	      <p><label class="field" for="state"><span>*</span>State:</label>
 	      
-		  <select name="state">
+		  <select name="state" form="postparty">
 		      <option value="AL">Alabama</option>
 		      <option value="AK">Alaska</option>
 		      <option value="AZ">Arizona</option>
@@ -95,7 +95,7 @@
 	      <p><label class="field" for="zip"><span>*</span>Zip:</label><input type="text" name="zip" class="textbox-300"/></p>
 	  </fieldset>
       </div>
-    </form>
+   
       
       
       

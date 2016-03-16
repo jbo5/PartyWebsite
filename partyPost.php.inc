@@ -31,7 +31,7 @@ class partyPost
     {
 	$query = "select partyId from parties where partyName = '$partyName';";
 	$results = $this->db->query($query);
-	if(!results)
+	if(!$results)
 	{
 	  $this->logger->log("error with results: ".$this->db->error);
 	  return 0;
