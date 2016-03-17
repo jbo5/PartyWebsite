@@ -42,20 +42,25 @@ switch($request)
 	
     case "Find Party":
 	$partyRequest = $_POST["findByLocation"];
-	echo $partyRequest;
+	//echo $partyRequest;
 	$search = new searchParty("connect.ini");
 	$response= $search->searchByLocation($partyRequest);
 	
-	/*
+	
 	if ($response['success']===true)
 	{
-		$response = "Register Successful!<p>";
+		$response = "Succesful We found ".$response['partyResults']." Parties in your Area!<p>".
+			      "Party Name: ".$response['partyName']."<p>".
+			      "Party Location: ".$response['partyLocation']."<p>".
+			      "Party Time: ".$response['partyTime']."<p>".
+			      "Party Comments: ".$response['partyComments']."<p>";
+		//"Succesful We found Parties in your Area!<p>";
 	}
 	else
 	{
 		$response = "Register Failed:".$response['message']."<p>";
 	}
-	*/
+	
 	break;
 	
 

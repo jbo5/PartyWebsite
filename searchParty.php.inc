@@ -45,12 +45,21 @@ class searchParty {
     {
 	$query = "select partyName, partyLocation, partyTime, partyComments from parties where partyLocation like '%{$partyLocation}%';";
 	$results = $this->db->query($query);
+	$partyInfo = $results->fetch_assoc();
 	$num = $results->num_rows;
 	if(!$results)
 	{
 	  $this->logger->log("error with results: ".$this->db->error);
 	  return 0;
 	}
+	return array("success"=>true,
+		     "partyName"=>$partyInfo['partyName'],
+		     "partyLocation"=>$partyInfo['partyLocation'],
+		     "partyTime"=>$partyInfo['partyTime'],
+		     "partyComments"=>$partyInfo['partyComments'],
+		     "partyResults"=>$num
+		     
+	);
 	return "The number of result(s) is $num  <p>" ;
     }
 
