@@ -2,6 +2,7 @@
 
 require_once "partyPost.php.inc";
 require_once "clientDB.php.inc";
+require_once "searchParty.php.inc"
 
 
 $request = $_POST['request'];
@@ -37,8 +38,25 @@ switch($request)
 	{
 		$response = "Register Failed:".$response['message']."<p>";
 	}
-	
 	break;
+	
+    case "Find Party":
+	$partyRequest = $_POST["findByLocation"];
+	echo $partyRequest;
+	$search = new searchParty("connect.ini");
+	
+	
+	if ($response['success']===true)
+	{
+		$response = "Register Successful!<p>";
+	}
+	else
+	{
+		$response = "Register Failed:".$response['message']."<p>";
+	}
+	break;
+	
+
     case "Post Party":
 	$username = $_POST["username"];
 	$password = $_POST["password"];
@@ -49,10 +67,8 @@ switch($request)
 	$city = $_POST["city"];
 	$state = $_POST["state"];
 	$zip = $_POST["zip"];
-	echo $address;
-	echo $city;
-	echo $zip;
-	echo $state;
+	$partyLocation = $address.' '. $city.' '. $state.' '.$zip;
+	echo $partyLocation;
 	
 	$partyTime = $_POST["partyTime"];
 	$comment = $_POST["comment"];

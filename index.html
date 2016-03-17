@@ -89,6 +89,15 @@
 		      <option value="WV">West Virginia</option>
 		      <option value="WI">Wisconsin</option>
 		      <option value="WY">Wyoming</option>
+		      <option value="AS">American Samoa</option>
+		      <option value="GU">Guam</option>
+		      <option value="MP">Northern Mariana Islands</option>
+		      <option value="PR">Puerto Rico</option>
+		      <option value="UM">United States Minor Outlying Islands</option>
+		      <option value="VI">Virgin Islands</option>
+		      <option value="AA">Armed Forces Americas</option>
+		      <option value="AP">Armed Forces Pacific</option>
+		      <option value="AE">Armed Forces Others</option>		
 		</select>					
 	     <!--<input type="text" name="state" class="textbox-300"/>-->
 	      </p>
@@ -181,7 +190,6 @@
 	      <option value="57">57</option>
 	      <option value="58">58</option>
 	      <option value="59">59</option>
-	      <option value="60">60</option>
                 <?php query_minute() ?>
             </select>                   
             <select name="ampm" form="postparty">
@@ -263,6 +271,21 @@
       <p>Party Comment: <input type="text" name="comment"/></p>
       <input type="submit" name="request" value= "Post Party"/>
     </form>
+    
+    
+    
+    
+    
+    <h3> Find a Party By You!</h3>
+    <form action="rpc.php" method="post" >
+      <p>Find a party by location: <input type="text" name="findByLocation" /></p>
+
+      <input type="submit" name="request" value="Find Party"/>
+    </form>
+    
+    
+    
+
     
     <h4>Party Ratings and Comments</h4>
     <form>
