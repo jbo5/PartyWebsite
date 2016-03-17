@@ -2,7 +2,7 @@
 
 require_once "partyPost.php.inc";
 require_once "clientDB.php.inc";
-require_once "searchParty.php.inc"
+require_once "searchParty.php.inc";
 
 
 $request = $_POST['request'];
@@ -44,8 +44,9 @@ switch($request)
 	$partyRequest = $_POST["findByLocation"];
 	echo $partyRequest;
 	$search = new searchParty("connect.ini");
+	$response= $search->searchByLocation($partyRequest);
 	
-	
+	/*
 	if ($response['success']===true)
 	{
 		$response = "Register Successful!<p>";
@@ -54,6 +55,7 @@ switch($request)
 	{
 		$response = "Register Failed:".$response['message']."<p>";
 	}
+	*/
 	break;
 	
 
@@ -110,7 +112,7 @@ switch($request)
 	break;
 	
 }
-echo $partyTime;
+
 echo $response;
 ?>
 

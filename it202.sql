@@ -19,7 +19,7 @@ create table clients
     partyName varchar(32),    
     partyLocation varchar(32),
     partyTime dateTime,
-    partyComments varchar(32)
+    partyComments varchar(128)
   
   );
   

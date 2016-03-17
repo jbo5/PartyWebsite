@@ -1,7 +1,7 @@
 <?php
 
 
-class searhParty{
+class searchParty {
     
     private $db;	
     private $logger;
@@ -45,12 +45,13 @@ class searhParty{
     {
 	$query = "select partyName, partyLocation, partyTime, partyComments from parties where partyLocation like '%{$partyLocation}%';";
 	$results = $this->db->query($query);
-	$num = $results->nu
+	$num = $results->num_rows;
 	if(!$results)
 	{
 	  $this->logger->log("error with results: ".$this->db->error);
 	  return 0;
 	}
+	return "The number of result(s) is $num  <p>" ;
     }
 
 
