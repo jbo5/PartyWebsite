@@ -45,13 +45,26 @@ class searchParty {
     {
 	$query = "select partyName, partyLocation, partyTime, partyComments from parties where partyLocation like '%{$partyLocation}%';";
 	$results = $this->db->query($query);
-	$partyInfo = $results->fetch_assoc();
+	//$partyInfo = $results->fetch_assoc();
 	$num = $results->num_rows;
+	$partyString;
 	if(!$results)
 	{
 	  $this->logger->log("error with results: ".$this->db->error);
 	  return 0;
 	}
+	$partyString = "Succesful We found ".$num." Parties in your Area!<p> <br>";
+	if($results->num_rows){
+	    while($partyInfo = $results->fetch_object()){
+		$partyString= $partyString.
+			      "Party Name: ".$partyInfo->partyName."<p>".
+			      "Party Location: ".$partyInfo->partyLocation."<p>".
+			      "Party Time: ".$partyInfo->partyTime."<p>".
+			      "Party Comments: ".$partyInfo->partyComments."<p> <br>";
+	    }
+	}
+	return $partyString;
+	
 	return array("success"=>true,
 		     "partyName"=>$partyInfo['partyName'],
 		     "partyLocation"=>$partyInfo['partyLocation'],
@@ -61,6 +74,31 @@ class searchParty {
 		     
 	);
 	return "The number of result(s) is $num  <p>" ;
+    }
+    public function searchByTime($partyTime)
+    {
+      $query = "SELECT * FROM parties WHERE CAST( partyTime AS DATE ) = '$partyTime';";
+      $results = $this->db->query($query);
+      //$partyInfo = $results->fetch_assoc();
+      $num = $results->num_rows;
+      if(!$results)
+	{
+	  $this->logger->log("error with results: ".$this->db->error);
+	  return "Doesn't work<p>";
+	}
+	$partyString = "Succesful We found ".$num." Parties in your Area!<p> <br>";
+	if($results->num_rows){
+	    while($partyInfo = $results->fetch_object()){
+		$partyString = $partyString.
+			      "Party Name: ".$partyInfo->partyName."<p>".
+			      "Party Location: ".$partyInfo->partyLocation."<p>".
+			      "Party Time: ".$partyInfo->partyTime."<p>".
+			      "Party Comments: ".$partyInfo->partyComments."<p> <br>";
+	    }
+	}
+	return $partyString;
+      
+      
     }
 
 

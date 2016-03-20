@@ -39,6 +39,24 @@ switch($request)
 		$response = "Register Failed:".$response['message']."<p>";
 	}
 	break;
+    
+    case "Find a Party by Time":
+	//$search = new searchParty("connect.ini");
+	//$response= $search->searchByTime($partyRequest);
+	
+	$day = $_POST['day'];
+	$month = $_POST['month'];
+	$year = $_POST['year'];
+	$minute = $_POST['minute'];
+	$hour = $_POST['hour'];
+	$ampm = $_POST['ampm'];
+	//$date = date('Y-m-d H:i:s',strtotime($year."-".$month."-".$day." ".$hour.":".$minute." ".$ampm));
+	$date = date('Y-m-d H:i:s',strtotime($year."-".$month."-".$day));
+	echo $date;
+	
+	$search = new searchParty("connect.ini");
+	$response= $search->searchByTime($date);
+	break;
 	
     case "Find Party":
 	$partyRequest = $_POST["findByLocation"];
@@ -46,11 +64,11 @@ switch($request)
 	$search = new searchParty("connect.ini");
 	$response= $search->searchByLocation($partyRequest);
 	
-	
+	/*
 	if ($response['success']===true)
-	{
-		$response = "Succesful We found ".$response['partyResults']." Parties in your Area!<p>".
-			      "Party Name: ".$response['partyName']."<p>".
+	{	echo "Succesful We found ".$response['partyResults']." Parties in your Area!<p>";
+		
+		$response =   "Party Name: ".$response['partyName']."<p>".
 			      "Party Location: ".$response['partyLocation']."<p>".
 			      "Party Time: ".$response['partyTime']."<p>".
 			      "Party Comments: ".$response['partyComments']."<p>";
@@ -60,8 +78,9 @@ switch($request)
 	{
 		$response = "Register Failed:".$response['message']."<p>";
 	}
-	
+	*/
 	break;
+    
 	
 
     case "Post Party":

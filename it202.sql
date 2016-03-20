@@ -17,7 +17,7 @@ create table clients
     partyId INT(11) primary key auto_increment,
     clientName varchar(32),
     partyName varchar(32),    
-    partyLocation varchar(32),
+    partyLocation varchar(50),
     partyTime dateTime,
     partyComments varchar(128)
   
