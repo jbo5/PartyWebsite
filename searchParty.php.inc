@@ -86,7 +86,7 @@ class searchParty {
 	  $this->logger->log("error with results: ".$this->db->error);
 	  return "Doesn't work<p>";
 	}
-	$partyString = "Succesful We found ".$num." Parties in your Area!<p> <br>";
+	$partyString = "Succesful We found ".$num." Parties around $partyTime !<p> <br>";
 	if($results->num_rows){
 	    while($partyInfo = $results->fetch_object()){
 		$partyString = $partyString.
