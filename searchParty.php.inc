@@ -65,7 +65,9 @@ class searchParty {
 				  "Party Comments: ".$partyInfo->partyComments."<p> <br>";
 		}
 	    }
-	}
+	}else{
+		$partyString = "Sorry we found $num Parties near $partyLocation. <p> <br>";
+	    }
 	return $partyString;
 	
 	return array("success"=>true,
@@ -104,7 +106,7 @@ class searchParty {
 		}
 	    }
 	}else{
-		$partyString = "Sorry we found $num Parties near $partyLocation and around $partyTime <p> <br>";
+		$partyString = "Sorry we found $num Parties around $partyTime <p> <br>";
 	    }
 	return $partyString;
       

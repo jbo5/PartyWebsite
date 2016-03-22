@@ -53,7 +53,7 @@ switch($request)
 	$ampm = $_POST['ampm'];
 	//$date = date('Y-m-d H:i:s',strtotime($year."-".$month."-".$day." ".$hour.":".$minute." ".$ampm));
 	$date = date('Y-m-d H:i:s',strtotime($year."-".$month."-".$day));
-	echo $date;
+	//echo $date;
 	
 	$search = new searchParty("connect.ini");
 	$response= $search->searchByTime($date);
@@ -111,7 +111,7 @@ switch($request)
 	$state = $_POST["state"];
 	$zip = $_POST["zip"];
 	$partyLocation = $address.' '. $city.' '. $state.' '.$zip;
-	echo $partyLocation;
+	//echo $partyLocation;
 	
 	$partyTime = $_POST["partyTime"];
 	$comment = $_POST["comment"];
