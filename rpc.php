@@ -39,6 +39,7 @@ switch($request)
 		$response = "Register Failed:".$response['message']."<p>";
 	}
 	break;
+	
     
     case "Find a Party by Time":
 	//$search = new searchParty("connect.ini");
@@ -57,6 +58,22 @@ switch($request)
 	$search = new searchParty("connect.ini");
 	$response= $search->searchByTime($date);
 	break;
+	
+    case "Find a Party by Time and Location":
+    
+	  $day = $_POST['day'];
+	  $month = $_POST['month'];
+	  $year = $_POST['year'];
+	  $minute = $_POST['minute'];
+	  $hour = $_POST['hour'];
+	  $ampm = $_POST['ampm'];
+	  //$date = date('Y-m-d H:i:s',strtotime($year."-".$month."-".$day." ".$hour.":".$minute." ".$ampm));
+	  $date = date('Y-m-d H:i:s',strtotime($year."-".$month."-".$day));
+	  $partyLocation = $_POST["findByLocationAndTime"];
+	
+	  $search = new searchParty("connect.ini");
+	  $response = $search->searchByLocationAndTime($date, $partyLocation);
+	  break;
 	
     case "Find Party":
 	$partyRequest = $_POST["findByLocation"];
