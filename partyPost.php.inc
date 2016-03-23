@@ -71,6 +71,34 @@ class partyPost
       
 	
     }
+    
+    public function postPartyComment($partyName, $partyComment)
+    {
+	$partyResponse;
+	$partyName = $this->db->real_escape_string($partyName);
+	$partyComment = $this->db->real_escape_string($partyComment);
+	if($this->getPartyID($partyName) != 0)
+	{
+	    $commentQuery ="UPDATE parties SET partyComments = concat( partyComments, '$partyComments' ) WHERE partyName = '$partyName';";
+	    $results = $this->db->query($commentQuery);
+	    
+	    if($results){
+	      $partyResponse = "Comment was posted";
+	    }else{
+	      $partyResponse = "Comment was not posted";
+	    }
+	    
+	}
+	else
+	{
+	    $partyResponse = "$partyName does not exist";
+	}
+	
+	return $partyResponse;
+      
+    
+    
+    }
 
 
 

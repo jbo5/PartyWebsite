@@ -39,6 +39,21 @@ switch($request)
 		$response = "Register Failed:".$response['message']."<p>";
 	}
 	break;
+    
+    case "Post Comment":
+	$response= "It works";
+	$post = new partyPost("connect.ini");
+	
+	break;
+	
+    case "Browse Parties":
+	 $partyName = $_POST['Party Name'];
+	 $partyComment = $_POST['Party Comment'];
+	 $search = new searchParty("connect.ini");
+	 
+	 $response = $search->postPartyComment($partyName, $partyComment);
+	 break;
+	  
 	
     
     case "Find a Party by Time":
