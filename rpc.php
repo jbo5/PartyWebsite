@@ -42,16 +42,19 @@ switch($request)
     
     case "Post Comment":
 	$response= "It works";
+	$partyName = $_POST['PartyName'];
+	$partyComment = $_POST['PartyComment'];
 	$post = new partyPost("connect.ini");
+	$response = $post->postPartyComment($partyName, $partyComment);
+
 	
 	break;
 	
     case "Browse Parties":
-	 $partyName = $_POST['Party Name'];
-	 $partyComment = $_POST['Party Comment'];
 	 $search = new searchParty("connect.ini");
 	 
-	 $response = $search->postPartyComment($partyName, $partyComment);
+	 //$response = $search->postPartyComment($partyName, $partyComment);
+	 $response ="It works";
 	 break;
 	  
 	

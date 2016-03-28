@@ -77,13 +77,14 @@ class partyPost
 	$partyResponse;
 	$partyName = $this->db->real_escape_string($partyName);
 	$partyComment = $this->db->real_escape_string($partyComment);
+	$partyComments = " .". $partyComment;
 	if($this->getPartyID($partyName) != 0)
 	{
-	    $commentQuery ="UPDATE parties SET partyComments = concat( partyComments, '$partyComments' ) WHERE partyName = '$partyName';";
+	    $commentQuery ="UPDATE parties SET partyComments = concat( partyComments, ' $partyComments' ) WHERE partyName = '$partyName';";
 	    $results = $this->db->query($commentQuery);
 	    
 	    if($results){
-	      $partyResponse = "Comment was posted";
+	      $partyResponse = " \"$partyComment\" Comment was posted";
 	    }else{
 	      $partyResponse = "Comment was not posted";
 	    }

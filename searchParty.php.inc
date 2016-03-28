@@ -81,6 +81,11 @@ class searchParty {
 	return "The number of result(s) is $num  <p>" ;
     }
     
+    public function browseParties()
+    {
+    
+    }
+    
     
     public function searchByTime($partyTime)
     {
