@@ -52,9 +52,8 @@ switch($request)
 	
     case "Browse Parties":
 	 $search = new searchParty("connect.ini");
+	 $response = $search->browseParties();
 	 
-	 //$response = $search->postPartyComment($partyName, $partyComment);
-	 $response ="It works";
 	 break;
 	  
 	

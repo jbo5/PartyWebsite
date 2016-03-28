@@ -83,6 +83,31 @@ class searchParty {
     
     public function browseParties()
     {
+      $query = "SELECT * FROM parties WHERE partyTime >= curdate() order by partyTime Limit 10;";
+      $results = $this->db->query($query);
+      //$partyInfo = $results->fetch_assoc();
+      $num = $results->num_rows;
+      $partyString;
+      if(!$results)
+	{
+	  $this->logger->log("error with results: ".$this->db->error);
+	  return "Doesn't work<p>";
+	}
+	if($num >= 1){
+	    $partyString = "Here are ".$num." of upcoming Parties right now!<p> <br>";
+	    if($results->num_rows){
+		while($partyInfo = $results->fetch_object()){
+		    $partyString = $partyString.
+				  "Party Name: ".$partyInfo->partyName."<p>".
+				  "Party Location: ".$partyInfo->partyLocation."<p>".
+				  "Party Time: ".$partyInfo->partyTime."<p>".
+				  "Party Comments: ".$partyInfo->partyComments."<p> <br>";
+		}
+	    }
+	}else{
+		$partyString = "Sorry we found $num Parties around $partyTime <p> <br>";
+	    }
+	return $partyString;
     
     }
     
