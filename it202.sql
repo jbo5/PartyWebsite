@@ -19,16 +19,21 @@ create table clients
     partyName varchar(32),    
     partyLocation varchar(50),
     partyTime dateTime,
-    partyComments varchar(128)
+    partyComments varchar(128),
+    partyRating INT(11)
   
   );
   
-  CREATE TABLE Address (
-    addrID      int(11)     NOT NULL   auto_increment,
-    addrStreet  varchar(50) NOT NULL   default '',
-    addrCity    varchar(25) NOT NULL   default '',
-    addrState   char(2)     NOT NULL   default '',
-    addrZIP     char(10)    NOT NULL   default '',
-    PRIMARY KEY (addrID)
-);
+ drop tables if exists comments;
+ CREATE TABLE comments 
+  (
+    commentId INT(11) primary key auto_increment,
+    comments varchar (128), 
+    commenterId varchar(32),
+    partyID varchar(32),
+    upVotes INT(11),
+    enabled INT(2),
+    commentTime dateTime
+  
+  );
   

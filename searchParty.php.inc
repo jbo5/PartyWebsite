@@ -94,7 +94,7 @@ class searchParty {
 	  return "Doesn't work<p>";
 	}
 	if($num >= 1){
-	    $partyString = "Here are ".$num." of upcoming Parties right now!<p> <br>";
+	    $partyString = "Here are ".$num." of the upcoming Parties right now!<p> <br>";
 	    if($results->num_rows){
 		while($partyInfo = $results->fetch_object()){
 		    $partyString = $partyString.
